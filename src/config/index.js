@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //database setup
 const dbSetup = () => {
     mongoose
-        .connect("mongodb://localhost:27017", {
+        .connect("mongodb://localhost:27017/blog", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
