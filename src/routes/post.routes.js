@@ -7,3 +7,5 @@ router.post("/post", createPost);
 router.patch("/post/:id", editPost);
 router.delete("/post/:id", deletePost);
 router.delete("/post", deleteAllPosts);
+
+module.exports = router;

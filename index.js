@@ -7,10 +7,10 @@ dbSetup();
 
 app.use(express.json());
 
-app.get("/", () => {
+app.get("/", (req, res) => {
     return res.status(200).json({ message: "Welcome to my blog"});
 })
 
-const routes = require("./src/routes/index.routes.js");
-routes(app);
+
+require("./src/routes/index.routes.js")(app);
 app.listen((PORT), () => console.log(`Server is running on port ${PORT}`));
