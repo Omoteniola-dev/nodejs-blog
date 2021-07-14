@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const postSchema = Schema({
     id: {
-        type: Number
+        type: String,
     },
-    name: {
+    title: {
         type: String
     },
     url: {
