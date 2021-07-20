@@ -2,21 +2,43 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userSchema = Schema({
-    name: {
-        type: String
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true,
+        unique: true
     },
     email: {
-        type: String
+        type: String,
+        required: true
     },
     socials: {
-        type:{}
+        twitter: {
+            url: { type: String }
+        },
+        instagram: {
+            url: { type: String }
+        },
+        facebook: {
+            url: { type: String }
+        }
     },
     picture: {
         url: {
             type: String
             }
         },
-    profile: {
+    about: {
+        type: String
+    },
+    password: {
         type: String
     }
 });
