@@ -18,7 +18,7 @@ exports.createPost = async(req, res) => {
 exports.fetchAllPosts = async(req, res) => {
     try{
         const posts = await Post.find({});
-
+        
         return res.status(200).json({ message: posts })
     }
     catch(err){
@@ -27,14 +27,34 @@ exports.fetchAllPosts = async(req, res) => {
 };
 
 exports.deletePost = async(req, res) => {
-    return null;
+    try{
+        const post_id = req.params.id
+        const deletedPost = await Post.deleteOne({ id: post_id });
+        return res.status(200).json({ message: `Post with the id ${post_id} deleted`});
+    }
+    catch(err){
+        throw err;
+    }
 };
 
 exports.editPost = async(req, res) => {
-    return null;
+    try {
+        const selectedPost = await Post.findByIdAndUpdate({ id: req.params.id }, ...req.body);
+
+        return res.status(200).json({ message: `Post with id: ${req.params.id} has been updated`});
+    }
+    catch(err){
+        throw err;
+    }
 };
 
 
 exports.deleteAllPosts = async(req, res) => {
-    return null;
+    try{
+        const deletedPosts = await Post.deleteMany({});
+        return res.status(200).json({ message: `All posts have been deleted`});
+    }
+    catch(err){
+        throw err
+    }
 }
